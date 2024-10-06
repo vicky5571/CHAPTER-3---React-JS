@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UserDetails } from "./components/UserDetails";
 
 export default function App() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [counter, setCounter] = useState(3);
+  const [sync, setSync] = useState(false);
   const [users, setUsers] = useState([
     {
       id: 1,
@@ -18,8 +19,38 @@ export default function App() {
     },
   ]);
 
+  useEffect(() => {
+    console.log("Rendering...");
+    document.title = "React Tutorial" + counter;
+  }, [sync]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    controller.signal;
+    async function fetchUsers() {
+      try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users", { signal: controller.signal });
+        const json = await response.json();
+        console.log(json);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchUsers();
+    return () => {
+      controller.abort();
+    };
+  });
+
   return (
     <div>
+      <div>
+        <div>You clicked {counter} times</div>
+        <button onClick={() => setCounter((count) => count + 1)}>Click Me</button>
+        <button onClick={() => setSync((current) => !current)}>Sync</button>
+      </div>
+      <br />
+      <br />
       <form
         onSubmit={(e) => {
           e.preventDefault();
