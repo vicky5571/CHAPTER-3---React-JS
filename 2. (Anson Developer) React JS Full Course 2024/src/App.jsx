@@ -1,13 +1,26 @@
-import { useState, useEffect } from "react";
-import { LoginForm } from "./components/LoginForm";
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+import { PostContainer } from "./components/PostContainer";
+import { UserContext } from "./components/utils/hooks/contexts/UserContext";
+import { PostContentButton } from "./components/utils/hooks/contexts/UserContext";
 
 export default function App() {
-  const [toggle, setToggle] = useState(false);
-
+  const [userData, setUserData] = useState({
+    id: 1,
+    username: "Vicky",
+    email: "vicky@gmail.com",
+    displayName: "Vicky5571",
+  });
   return (
     <div>
-      <button onClick={() => setToggle((currentState) => !currentState)}>Toggle</button>
-      {toggle && <LoginForm />}
+      <>
+        <UserContext.Provider value={{ ...userData, setUserData }}>
+          <div>
+            <PostContainer />
+          </div>
+        </UserContext.Provider>
+        <PostContentButton />
+      </>
     </div>
   );
 }
