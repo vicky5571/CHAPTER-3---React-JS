@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import { useContext } from "react";
 import { PostContent } from "./PostContent";
-import { UserContext } from "./utils/hooks/contexts/UserContext";
+import { UserContext } from "./utils/contexts/UserContext";
 
 export function PostContainer() {
   const [data, setData] = useState("hellow");

@@ -1,10 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { PostContainer } from "./components/PostContainer";
-import { UserContext } from "./components/utils/hooks/contexts/UserContext";
-import { PostContentButton } from "./components/utils/hooks/contexts/UserContext";
+import { UserContext } from "./components/utils/contexts/UserContext";
+import { PostContentButton } from "./components/utils/contexts/UserContext";
 
 export default function App() {
+  const { user, loading, error } = useFetchUser(2);
+  console.log(user, loading, error);
+
   const [userData, setUserData] = useState({
     id: 1,
     username: "Vicky",
