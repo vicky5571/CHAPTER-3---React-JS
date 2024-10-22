@@ -13,7 +13,10 @@ export function PostContainer() {
       <div>
         <span>PostContainer</span>
       </div>
-      <div>{userContextData.displayName}</div>
+      <div>{userContextData.name}</div>
+      <div>{userContextData.id}</div>
+      <div>{userContextData.email}</div>
+      <div>{userContextData.username}</div>
       <PostContent data={data} />
     </div>
   );

@@ -12,7 +12,7 @@ export function PostContentButton() {
       <br />
       <button
         onClick={() => {
-          setUserData((currentState) => ({ ...currentState, displayName: "Updated Display Name" }));
+          setUserData((currentState) => ({ ...currentState, name: "Updated Name" }));
         }}
       >
         Click Me
