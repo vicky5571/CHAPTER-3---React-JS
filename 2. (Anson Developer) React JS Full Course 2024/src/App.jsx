@@ -16,6 +16,19 @@ export default function App() {
   return (
     <div>
       <>
+        <nav>
+          <ul>
+            <li>
+              <a href="/"></a>
+            </li>
+            <li>
+              <a href="/users">Users</a>
+            </li>
+            <li>
+              <a href="/blog-posts">Blogs</a>
+            </li>
+          </ul>
+        </nav>
         <UserContext.Provider value={{ ...userData, setUserData }}>
           <div>{loading ? "Loading..." : <PostContainer />}</div>
         </UserContext.Provider>
