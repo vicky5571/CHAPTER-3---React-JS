@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { PostContainer } from "./components/PostContainer";
 import { UserContext } from "./components/utils/contexts/UserContext";
 import { PostContentButton } from "./components/utils/contexts/UserContext";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 export default function App() {
   const { user, loading, error } = useFetchUser(2);
@@ -19,13 +19,13 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <a href="/"></a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/users">Users</a>
+              <Link to="/users">Users</Link>
             </li>
             <li>
-              <a href="/blog-posts">Blogs</a>
+              <Link to="/blog-posts">Blogs</Link>
             </li>
           </ul>
         </nav>
