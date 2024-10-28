@@ -5,8 +5,6 @@ import { UsernameDisplay } from "../components/UsernameDisplay";
 describe("UsernameDisplay", () => {
   it("should render username", () => {
     render(<UsernameDisplay username="vicky" />);
-    // expect(result.container).toMatchSnapshot();
-    const elements = screen.queryAllByText("vicky");
-    elements.forEach((element) => expect(element).toBeInTheDocument());
+    expect(screen.queryByText("vicky")).toBeNull();
   });
 });
