@@ -9,7 +9,22 @@ import { BlogPostsPage } from "./components/pages/BlogPostsPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <App
+        usersData={[
+          {
+            id: 1,
+            username: "vicky5571",
+            email: "vicky@gmail.com",
+          },
+          {
+            id: 2,
+            username: "tabita",
+            email: "tabita@gmail.com",
+          },
+        ]}
+      />
+    ),
     children: [
       {
         path: "users",

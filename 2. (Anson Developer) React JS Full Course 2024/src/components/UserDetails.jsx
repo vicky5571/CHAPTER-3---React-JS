@@ -8,7 +8,7 @@ export function UserDetails({ user, setUsers }) {
   const [email, setEmail] = useState(user.email);
 
   return (
-    <div>
+    <div data-testid={`user-details-${user.id}`}>
       <div>
         <button
           data-testid={`edit-btn-${user.id}`}

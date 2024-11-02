@@ -8,23 +8,12 @@ import { Outlet, Link, useNavigate } from "react-router-dom";
 import { UserDetails } from "./components/UserDetails";
 import { useFetchUser } from "./components/utils/hooks/useFetchUser";
 
-export default function App() {
+export default function App({ usersData }) {
   // const { user, loading, error } = useFetchUser(2);
   // console.log(user, loading, error);
   // const navigate = useNavigate();
 
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      username: "vicky5571",
-      email: "vicky@gmail.com",
-    },
-    {
-      id: 2,
-      username: "tabita",
-      email: "tabita@gmail.com",
-    },
-  ]);
+  const [users, setUsers] = useState(usersData);
 
   // useEffect(() => {
   //   if (!loading && !error && user) {
