@@ -46,6 +46,7 @@ export function UserDetails({ user, setUsers }) {
         <b>Username: </b>
         {isEditing ? (
           <input
+            aria-label="username"
             name="username"
             id="username"
             value={username}
@@ -60,6 +61,7 @@ export function UserDetails({ user, setUsers }) {
         <b>Email: </b>
         {isEditing ? (
           <input
+            aria-label="email"
             name="email"
             id="email"
             type="email"
