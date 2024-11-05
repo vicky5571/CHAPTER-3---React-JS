@@ -3,24 +3,26 @@
 import { useEffect, useState } from "react";
 import { PostContainer } from "./components/PostContainer";
 import { UserContext } from "./components/utils/contexts/UserContext";
-import { PostContentButton } from "./components/utils/contexts/UserContext";
+// import { PostContentButton } from "./components/utils/contexts/PostContentButton";
+import { PostContentButton } from "./components/PostContentButton";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { UserDetails } from "./components/UserDetails";
 import { useFetchUser } from "./components/utils/hooks/useFetchUser";
 
 export default function App({ usersData }) {
-  // const { user, loading, error } = useFetchUser(2);
+  const { user, loading, error } = useFetchUser(2);
   // console.log(user, loading, error);
   // const navigate = useNavigate();
 
+  const [userData, setUserData] = useState();
   const [users, setUsers] = useState(usersData);
 
-  // useEffect(() => {
-  //   if (!loading && !error && user) {
-  //     setUserData(user);
-  //     // navigate("/users");
-  //   }
-  // }, [loading, error, user]);
+  useEffect(() => {
+    if (!loading && !error && user) {
+      setUserData(user);
+      // navigate("/users");
+    }
+  }, [loading, error, user]);
   return (
     <>
       {users.map((user) => (
@@ -62,13 +64,13 @@ export default function App({ usersData }) {
             }
           }}
         />
-      </div>
+      </div/> */}
 
       <UserContext.Provider value={{ ...userData, setUserData }}>
         <div>{loading ? "Loading..." : <PostContainer />}</div>
       </UserContext.Provider>
       <PostContentButton />
-      <Outlet /> */}
+      <Outlet />
     </>
   );
 }
