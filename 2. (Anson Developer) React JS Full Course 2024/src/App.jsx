@@ -28,7 +28,7 @@ export default function App({ usersData }) {
       {users.map((user) => (
         <UserDetails key={user.id} user={user} setUsers={setUsers} />
       ))}
-      {/* <nav>
+      <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -42,7 +42,7 @@ export default function App({ usersData }) {
         </ul>
       </nav>
 
-      <div>
+      {/* <div>
         <label htmlFor="data">Enter Data</label>
         <input
           type="text"

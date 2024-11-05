@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { within } from "@testing-library/dom";
 import App from "../App";
 import { server } from "../__mocks__/msw/server";
-import { http, HttpResponse } from "msw";
+import { http } from "msw";
 
 describe("when there is only 1 user", () => {
   describe("Edit Button is Clicked", () => {

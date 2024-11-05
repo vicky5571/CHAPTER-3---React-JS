@@ -3,7 +3,7 @@ import { cleanup, configure } from "@testing-library/react";
 import { server } from "./src/__mocks__/msw/server";
 import "@testing-library/jest-dom/vitest";
 
-configure({ asyncUtilTImeout: 4000 });
+configure({ asyncUtilTimeout: 5000 });
 
 beforeAll(() => {
   server.listen();
