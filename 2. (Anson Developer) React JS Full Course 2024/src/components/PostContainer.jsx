@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PostContent } from "./PostContent";
 import { UserContext } from "./utils/contexts/UserContext";
 
@@ -13,11 +13,11 @@ export function PostContainer() {
       <div>
         <span>PostContainer</span>
       </div>
-      <div>{userContextData.name}</div>
-      <div>{userContextData.id}</div>
-      <div>{userContextData.email}</div>
-      <div>{userContextData.username}</div>
-      <PostContent data={data} />
+      <div>Display Name: {userContextData.name}</div>
+      <div>ID: {userContextData.id}</div>
+      <div>Email: {userContextData.email}</div>
+      <div>Username: {userContextData.username}</div>
+      {/* <PostContent data={data} /> */}
     </div>
   );
 }

@@ -10,19 +10,19 @@ import { UserDetails } from "./components/UserDetails";
 import { useFetchUser } from "./components/utils/hooks/useFetchUser";
 
 export default function App({ usersData }) {
-  const { user, loading, error } = useFetchUser(2);
+  // const { user, loading, error } = useFetchUser(2);
   // console.log(user, loading, error);
   // const navigate = useNavigate();
 
-  const [userData, setUserData] = useState();
+  // const [userData, setUserData] = useState();
   const [users, setUsers] = useState(usersData);
 
-  useEffect(() => {
-    if (!loading && !error && user) {
-      setUserData(user);
-      // navigate("/users");
-    }
-  }, [loading, error, user]);
+  // useEffect(() => {
+  //   if (!loading && !error && user) {
+  //     setUserData(user);
+  //     // navigate("/users");
+  //   }
+  // }, [loading, error, user]);
   return (
     <>
       {users.map((user) => (
@@ -66,10 +66,10 @@ export default function App({ usersData }) {
         />
       </div/> */}
 
-      <UserContext.Provider value={{ ...userData, setUserData }}>
+      {/* <UserContext.Provider value={{ ...userData, setUserData }}>
         <div>{loading ? "Loading..." : <PostContainer />}</div>
       </UserContext.Provider>
-      <PostContentButton />
+      <PostContentButton /> */}
       <Outlet />
     </>
   );

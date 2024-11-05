@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`render context values > should display correct username 1`] = `
+<div>
+  <div>
+    <div>
+      <span>
+        PostContainer
+      </span>
+    </div>
+    <div>
+      Display Name: 
+      Johnny
+    </div>
+    <div>
+      ID: 
+      1001
+    </div>
+    <div>
+      Email: 
+      johnny@gmail.com
+    </div>
+    <div>
+      Username: 
+      johnny
+    </div>
+  </div>
+</div>
+`;
+
+exports[`render context values > should match snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <span>
+        PostContainer
+      </span>
+    </div>
+    <div>
+      Display Name: 
+      Johnny
+    </div>
+    <div>
+      ID: 
+      1001
+    </div>
+    <div>
+      Email: 
+      johnny@gmail.com
+    </div>
+    <div>
+      Username: 
+      johnny
+    </div>
+  </div>
+</div>
+`;
