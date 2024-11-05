@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { UserContext } from "./utils/contexts/UserContext";
 export function PostContentButton() {
   const { id, setUserData } = useContext(UserContext);
+  const { value, setValue } = useState("");
   return (
     <div>
       <div>
@@ -10,12 +11,14 @@ export function PostContentButton() {
       </div>
       {id}
       <br />
+      <label htmlFor="updateName">Update Name:</label>
+      <input id="updateName" value={value} onChange={(e) => setValue(e.target.value)} />
       <button
         onClick={() => {
-          setUserData((currentState) => ({ ...currentState, name: "Updated Name" }));
+          setUserData((currentState) => ({ ...currentState, name: value }));
         }}
       >
-        Click Me
+        Save Display Name
       </button>
     </div>
   );

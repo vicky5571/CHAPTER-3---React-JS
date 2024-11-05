@@ -8,7 +8,7 @@ export function PostContent() {
   return (
     <div>
       <div>
-        <span>PostContent</span>
+        <h3>PostContent</h3>
       </div>
       <div>
         <PostContentButton />

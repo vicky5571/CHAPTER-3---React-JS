@@ -1,5 +1,5 @@
 import { expect, it, describe } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { within } from "@testing-library/dom";
 import App from "../App";
@@ -117,4 +117,22 @@ describe("when there are 2 users", () => {
     expect(within(userDetails).queryByLabelText("Username:")).toBeNull();
     expect(within(userDetails).getByText("milkasekar123")).toBeInTheDocument();
   });
+});
+
+describe("rendering context data", () => {
+  it("should render correct Email", async () => {
+    render(<App usersData={[]} />);
+    await waitFor(async () => {
+      expect(await screen.findByText("Email: josh@josh.com")).toBeInTheDocument();
+    });
+  });
+});
+
+describe("updating userContext", () => {
+  it("should update display name", async () => {
+    render(<App usersData={[]} />);
+    await userEvent.type(screen.getByLabelText("Update Name:"));
+    await userEvent.click(screen.getByRole("Button", { name: "Save Display Name" }));
+  });
+  expect(screen.getByText("Display name: Jonathan The Dev")).toBeInTheDocument();
 });
