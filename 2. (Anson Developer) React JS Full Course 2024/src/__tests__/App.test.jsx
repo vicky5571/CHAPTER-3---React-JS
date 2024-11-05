@@ -3,6 +3,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { within } from "@testing-library/dom";
 import App from "../App";
+import { server } from "../__mocks__/msw/server";
+import { http, HttpResponse } from "msw";
 
 describe("when there is only 1 user", () => {
   describe("Edit Button is Clicked", () => {
@@ -121,6 +123,17 @@ describe("when there are 2 users", () => {
 
 describe("rendering context data", () => {
   it("should render correct Email", async () => {
+    server.use(
+      http.get("https://jsonplaceholder.typicode.com/users/*", ({ params }) => {
+        return Response.json({
+          id: params.id,
+          username: "joshua",
+          name: "joshua",
+          email: "joshua@yahoo.com",
+        });
+      })
+    );
+
     render(<App usersData={[]} />);
     await waitFor(async () => {
       expect(await screen.findByText("Email: josh@josh.com")).toBeInTheDocument();
